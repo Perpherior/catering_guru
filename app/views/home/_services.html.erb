@@ -1,0 +1,30 @@
+<div id="services" class="service-partial">
+  <% for article in @articles %>
+  <div class="row item-container">
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <img src="<%= article.thumb_img_url %>" alt="...">
+        <div class="caption">
+          <h5><a href="/<%= @partial_name %>/<%= article.nav_token%>">
+            <%= article.name.titleize %>
+          </a></h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 content">
+      <h3><a href="/<%= @partial_name %>/<%= article.nav_token%>"><%= article.name.titleize %></a></h3>
+      <hr>
+      <div class="article-description"><%= article.description%></div>
+      <button class="btn btn-default">
+        <a href="/<%= @partial_name %>/<%= article.nav_token%>">
+          Read More
+        </a>
+      </button>
+    </div>
+  </div>
+  <hr>
+  <% end %>
+  <div class="apple_pagination">
+    <%= will_paginate @articles, previous_label: "Pre", next_label: "Next" %>
+  </div>
+</div>

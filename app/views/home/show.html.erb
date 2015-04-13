@@ -1,0 +1,14 @@
+<div id="body-container">
+  <%= render :partial => "home/breadcrumb" unless @partial_name.nil? %>
+  <%= render :partial => "home/#{@partial_name}" %>
+  <div id="footer-divider"></div>
+  <div class="row site-map">
+    <div class="col-md-2"></div>
+    <div class="col-md-2 nav-site"><a href="about-us">About us</a></div>
+    <div class="col-md-2 nav-site"><a href="services">Services</a></div>
+    <div class="col-md-2 nav-site"><a href="information">Informations</a></div>
+    <div class="col-md-2 nav-site"><a href="contact-us">Contact us</a></div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+

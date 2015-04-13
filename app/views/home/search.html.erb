@@ -1,0 +1,36 @@
+<div id="body-container">
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Search
+    </li>
+  </ol>
+  <hr>
+  <div id="search-results">
+    <% if @results.empty? %>
+      <div>No matched article!!</div>
+    <% end %>
+    <% for result in @results %>
+      <div class="result-blocks <%= "odd" if @index%2 == 0 %>">
+        <h3><a href="/services/<%= result.nav_token %>"><%= result.name.titleize %></h3>
+        <hr>
+        <h5><%= result.brief_info(result.description, 35) %></h5>
+      </div>
+       <% @index = @index + 1 %>
+    <% end %>
+    <% if @results.total_pages > 1 %>
+    <div class="apple_pagination">
+      <%= will_paginate @results, previous_label: "Pre", next_label: "Next" %>
+    </div>
+    <% end %>
+  </div>
+  <div id="footer-divider"></div>
+  <div class="row site-map">
+    <div class="col-md-2"></div>
+    <div class="col-md-2 nav-site"><a href="about-us">About us</a></div>
+    <div class="col-md-2 nav-site"><a href="services">Services</a></div>
+    <div class="col-md-2 nav-site"><a href="information">Informations</a></div>
+    <div class="col-md-2 nav-site"><a href="contact-us">Contact us</a></div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+

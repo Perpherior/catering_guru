@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  span {font-size: 1.2em;  margin-bottom: 10px;}
+  span span {font-size: 1.2em; margin-bottom: 10px;}
+  body {background-color: #f2f2f2;} 
+  ul li{list-style-type: none; font-size: 1.1em;}
+  </style>
+</head>
+<body>
+<span>Customer Name: <%= @enquiry.last_name%> <%= @enquiry.first_name%></span>
+<p><span>Customer Email: <%= @enquiry.email %> </span>
+
+<span>Contact Detail: </span>
+<p><span>Phone: <%= @enquiry.phone%></span>
+<p>
+<span>Enquiries:</span>
+<p> <span><%= @enquiry.content%></span>
+
+</body>
+
+

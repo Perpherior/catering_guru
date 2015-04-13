@@ -1,0 +1,40 @@
+.service-partial {
+  margin: 0px 20px 0px 15px;
+
+  .row {
+    background-color: rgba(249, 249, 249, 0.47);    
+  }
+
+
+  .thumbnail > img {
+    margin-top: 7px;
+  }
+
+  .content {
+    margin-top: -25px;
+    hr {
+      width: 300px;
+      margin: 0px;
+    }
+    h3 {
+      font-style: italic;
+    }
+    button {
+      float: right;
+    }
+    .article-description {
+      display: block;
+      float: left;
+      text-align: justify;
+    }
+  }
+
+  @media (max-width: 990px) {
+    .thumbnail {
+      width: 200px;
+    }
+    .content {
+      margin-top: 20px;
+    }
+  }
+}

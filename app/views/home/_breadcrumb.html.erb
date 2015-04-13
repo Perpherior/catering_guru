@@ -1,0 +1,12 @@
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="<%= @article.nil? ? 'active' : '' %>">
+    <a href="/<%= @partial_name %>"><%= @partial_name.titleize %></a>
+  </li>
+  <% unless @article.nil? %>
+    <li class="active">
+      <%= @article.name.titleize %>
+    </li>
+  <% end %>
+</ol>
+<hr>

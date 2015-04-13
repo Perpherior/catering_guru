@@ -1,18 +1,26 @@
 source 'https://rubygems.org'
-
+ruby '2.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+gem 'pg_search'
+gem 'will_paginate', '~> 3.0.5'
+gem 'devise'
+gem 'rename'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'bootstrap-sass', git: 'https://github.com/twbs/bootstrap-sass.git'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+gem 'paperclip', '~> 4.2'
+gem 'active_attr'
+gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
+gem 'sidekiq'
+gem 'activeadmin', '~> 1.0.0.pre1'
+
+gem 'rails_12factor', group: :production
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -23,6 +31,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'responders', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+group :assets do
+  gem 'coffee-rails', '~> 4.1.0'
+  gem 'sass-rails', '~> 5.0'
+  gem 'uglifier', '>= 1.3.0'
+  gem 'ejs'
+  gem 'sprockets'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

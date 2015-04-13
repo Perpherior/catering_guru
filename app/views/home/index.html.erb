@@ -1,0 +1,117 @@
+<div id="body-container">
+  <div id="myCarousel" class="carousel slide carousel-fade">
+    <ol class="carousel-indicators">
+      <% for index in 0..@slideshows.count-1 %>
+      <li data-target="#myCarousel" data-slide-to="<%= index %>" class='<%= index==0 ? 'active' : '' %>'></li>
+      <% end %>
+    </ol>
+    <div class="carousel-inner">
+      <% for slideshow in @slideshows %>
+        <div class="item <%= @slideshows.first.id == slideshow.id ? 'active' : ''%>" style="background: url('<%= slideshow.origin_url %>') no-repeat center; height: 100%;">
+        <div class="container" id="carousel-caption" >
+          <div class="carousel-caption">
+            <p class="lead"><%= slideshow.content %></p>
+              <a class="btn slidershow-button"
+                href='<%= slideshow.article.nil? ? '#' : slideshow.article.nav_token %>' >
+              <i class="fa fa-play "></i>Discover more
+            </a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <!-- Control -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div id="services">
+    <h3 class="sub-title"><span>Our Services</span></h3>
+    <div class="row section-content">
+      <% for article in @service_article %>
+      <div class="col-sm-4 col-xs-6 col-md-2 home-thumb">
+        <div class="thumbnail">
+          <img src="<%= article.thumb_img_url %>" alt="...">
+          <div class="caption">
+            <h5><a href="/<%= article.nav_token %>">
+              <%= article.name.titleize %>
+            </a></h5>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <p>
+  <div class="row">
+    <div class="col-md-8" id="about-us-frame">
+      <div id="about-us">
+        <h3 class="sub-title">
+          <span>About Us</span>
+        </h3>
+        <div class="section-content">
+          <div id="content-box">
+          <%= raw @about_us.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-8 enquiry_form" id="enquiry-frame">
+      <div id="enquiry">
+        <h3 class="sub-title"><span>Quick Enquiry</span></h3>
+        <div class="section-content">
+          <%= form_for @enquiry, validate: true do |f| %>
+            <div class="form_field">
+              <%= f.label "First Name: " %>
+              <%= f.text_field :first_name, placeholder: 'John' %>
+            </div>
+            <div class="form_field required">
+              <div class="requiring-star">*</div>
+              <%= f.label "Last Name:" %>
+              <%= f.text_field :last_name, placeholder: 'Smith' %>
+            </div>
+            <div class="form_field">
+              <%= f.label "Phone:" %>
+              <%= f.text_field :phone, class: 'phone', placeholder: '04 230 000 00' %>
+            </div>
+            <div class="form_field required">
+              <div class="requiring-star">*</div>
+              <%= f.label "Email:" %>
+              <%= f.text_field :email, class: 'email', placeholder: 'John@gmail.com' %>
+            </div>
+            <div class="form_field required">
+              <div class="requiring-star">*</div>
+              <%= f.label "Enquiry:" %>
+              <%= f.text_area :content, placeholder: 'Tell us what you want to know!!' %>
+            </div>
+            <div class="actions form_field">
+              <%= f.submit "Enquire", class: 'btn btn-default' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer-divider"></div>
+  <div class="row site-map">
+    <div class="col-md-2"></div>
+    <div class="col-md-2 nav-site"><a href="about-us">About us</a></div>
+    <div class="col-md-2 nav-site"><a href="services">Services</a></div>
+    <div class="col-md-2 nav-site"><a href="information">Informations</a></div>
+    <div class="col-md-2 nav-site"><a href="contact-us">Contact us</a></div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+<script>
+
+$('.carousel').carousel();
+
+</script>
